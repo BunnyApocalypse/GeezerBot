@@ -7,7 +7,7 @@ from discord.enums import Status
 
 
 client = discord.Client()
-token = 'MTkzOTQ3MjcyMTA5NzUyMzIx.DCcT6Q.TmCx00hpqMPmWjWtM2bYyzr178c'
+token = ''
 @client.event
 async def on_ready():
     print('Logged in as')
