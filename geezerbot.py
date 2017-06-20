@@ -5,38 +5,15 @@ import asyncio
 from discord import embeds
 from discord.enums import Status
 from registrar import CommandRegistrar
+from discord.ext import commands
 import requests
 
 client = discord.Client()
-token = 'MTkzOTQ3MjcyMTA5NzUyMzIx.DCcvNA.G4Eax_IANHP6e1xgEKCaLkhm23I'
+token = ''
 
 command_registrar = CommandRegistrar.get_singleton()
 shards = []
-
-# @client.event
-# async def on_ready():
-#     print('Logged in as')
-#     print(client.user.name)
-#     print(client.user.id)
-#     print('------')
-
-# @client.event
-# async def on_message(message):
-#     if message.content.startswith('!test'):
-#         counter = 0
-#         tmp = await client.send_message(message.channel, 'Calculating messages...')
-#         async for log in client.logs_from(message.channel, limit=100):
-#             if log.author == message.author:
-#                 counter += 1
-#                 await client.edit_message(tmp, 'You have {} messages.'.format(counter))
-
-#     elif message.content.startswith('!tellmeabout'):
-#          command.tellmeabout(message, client)
-
-#     elif message.content.startswith('!sleep'):
-#         await asyncio.sleep(5)
-#         await client.send_message(message.channel, 'Done sleeping')
-
+voice_states = {}
 
 async def _on_message(client, msg):
     if msg.author.id == client.user.id:
@@ -48,7 +25,7 @@ async def _on_message(client, msg):
 
 async def _on_ready(client, shard_id, num_shards):
     print(f'Shard {shard_id+1} connected with {len(client.servers)} servers.')
-    await client.change_presence(game=discord.Game(name=f'!help | Shard {shard_id+1}/{num_shards}'))
+    await client.change_presence(game=discord.Game(name=f'Geezerbot is up and running!'))
 
 
 def register_shard_events(client, _shard_id, _num_shards):
