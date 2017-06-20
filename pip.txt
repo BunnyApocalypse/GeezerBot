@@ -1,0 +1,4 @@
+#run pip install -r ./pip.txt
+discord.py[voice]
+registrar
+requests
